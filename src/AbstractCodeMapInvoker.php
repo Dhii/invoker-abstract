@@ -53,8 +53,9 @@ abstract class AbstractCodeMapInvoker
      *
      * @since [*next-version*]
      *
-     * @param string|Stringable $command
-     * @param array|Traversable $args
+     * @param string|Stringable $command The command to invoke.
+     *  Its string value will be used to find the mapped callable.
+     * @param array|Traversable $args The arguments to invoke the command with.
      *
      * @throws InvocationFailureExceptionInterface If the command could not be invoked.
      *
