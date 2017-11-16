@@ -1,6 +1,6 @@
 <?php
 
-namespace Dhii\Invocation\FuncTest;
+namespace Dhii\Invocation\UnitTest;
 
 use Xpmock\TestCase;
 use Dhii\Invocation\InvokeCallableCapableTrait as TestSubject;
