@@ -41,7 +41,7 @@ trait CommandInvokerAwareTrait
      *
      * @param CommandInvokerInterface|null $invoker The command invoker to assign.
      *
-     * @throws InvalidArgumentException If the commandInvoker is invalid.
+     * @throws InvalidArgumentException If the command invoker is invalid.
      */
     protected function _setCommandInvoker($invoker)
     {
