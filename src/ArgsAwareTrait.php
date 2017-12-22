@@ -13,7 +13,7 @@ use InvalidArgumentException;
 trait ArgsAwareTrait
 {
     /**
-     * The args.
+     * A list of argument values.
      *
      * @since [*next-version*]
      *
@@ -38,7 +38,7 @@ trait ArgsAwareTrait
      *
      * @since [*next-version*]
      *
-     * @param array $args The args to assign.
+     * @param array $args A list of argument values.
      */
     protected function _setArgs($args)
     {
