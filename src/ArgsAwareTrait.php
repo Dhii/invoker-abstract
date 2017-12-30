@@ -45,7 +45,7 @@ trait ArgsAwareTrait
     protected function _setArgs($args)
     {
         if (!is_array($args) && !($args instanceof Traversable)) {
-            throw $this->_createInvalidArgumentException($this->__('Invalid args'), null, null, $args);
+            throw $this->_createInvalidArgumentException($this->__('Invalid args list'), null, null, $args);
         }
 
         $this->args = $args;
