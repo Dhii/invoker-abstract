@@ -4,6 +4,8 @@ namespace Dhii\Invocation;
 
 use Exception as RootException;
 use InvalidArgumentException;
+use Traversable;
+use Dhii\Util\String\StringableInterface as Stringable;
 
 /**
  * Functionality for args awareness.
@@ -17,7 +19,7 @@ trait ArgsAwareTrait
      *
      * @since [*next-version*]
      *
-     * @var array
+     * @var array|Traversable
      */
     protected $args;
 
@@ -26,7 +28,7 @@ trait ArgsAwareTrait
      *
      * @since [*next-version*]
      *
-     * @return array The args.
+     * @return array|Traversable The args.
      */
     protected function _getArgs()
     {
@@ -38,12 +40,12 @@ trait ArgsAwareTrait
      *
      * @since [*next-version*]
      *
-     * @param array $args A list of argument values.
+     * @param array|Traversable $args A list of argument values.
      */
     protected function _setArgs($args)
     {
-        if (!is_array($args)) {
-            throw $this->_createInvalidArgumentException($this->__('Invalid args'), null, null, $args);
+        if (!is_array($args) && !($args instanceof Traversable)) {
+            throw $this->_createInvalidArgumentException($this->__('Invalid args list'), null, null, $args);
         }
 
         $this->args = $args;

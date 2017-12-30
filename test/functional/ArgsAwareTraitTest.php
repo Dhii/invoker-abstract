@@ -2,6 +2,8 @@
 
 namespace Dhii\Invocation\FuncTest;
 
+use ArrayIterator;
+use Traversable;
 use Xpmock\TestCase;
 use Dhii\Invocation\ArgsAwareTrait as TestSubject;
 use InvalidArgumentException;
@@ -42,6 +44,20 @@ class ArgsAwareTraitTest extends TestCase
     }
 
     /**
+     * Creates a traversable list.
+     *
+     * @since [*next-version*]
+     *
+     * @param array $array The array with elements for the traversable.
+     *
+     * @return Traversable The new Traversable.
+     */
+    public function createTraversable(array $array)
+    {
+        return new ArrayIterator($array);
+    }
+
+    /**
      * Tests whether a valid instance of the test subject can be created.
      *
      * @since [*next-version*]
@@ -73,6 +89,25 @@ class ArgsAwareTraitTest extends TestCase
         $result = $_subject->_getArgs();
 
         $this->assertEquals($args, $result, 'Assigned args are wrong');
+    }
+
+    /**
+     * Tests whether setting and retrieving args works correctly when they are a Traversable.
+     *
+     * @since [*next-version*]
+     */
+    public function testSetGetArgsTraversable()
+    {
+        $_args = [uniqid('arg1'), uniqid('arg2')];
+        $args = $this->createTraversable($_args);
+
+        $subject = $this->createInstance();
+        $_subject = $this->reflect($subject);
+
+        $_subject->_setArgs($args);
+        $result = $_subject->_getArgs();
+
+        $this->assertEquals($args, $result, 'Retrieved args (traversable) are wrong');
     }
 
     /**
