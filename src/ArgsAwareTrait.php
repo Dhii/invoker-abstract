@@ -5,6 +5,7 @@ namespace Dhii\Invocation;
 use Exception as RootException;
 use InvalidArgumentException;
 use Traversable;
+use Dhii\Util\String\StringableInterface as Stringable;
 
 /**
  * Functionality for args awareness.
