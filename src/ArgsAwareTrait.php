@@ -41,6 +41,8 @@ trait ArgsAwareTrait
      * @since [*next-version*]
      *
      * @param array|Traversable $args A list of argument values.
+     *
+     * @throws InvalidArgumentException If the arguments list is invalid.
      */
     protected function _setArgs($args)
     {
